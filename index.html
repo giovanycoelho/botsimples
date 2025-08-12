@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Gemini WA Responder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Configurações do Assistente de IA para WhatsApp</h1>
+
+    <div class="container">
+        <div class="connection-section">
+            <h2>Conexão com WhatsApp</h2>
+            <div id="status">Status: Desconectado</div>
+            <div id="qr-container">
+                <p>Clique em "Conectar" para gerar o QR Code.</p>
+            </div>
+            <button id="connect-btn">Conectar ao WhatsApp</button>
+            <button id="disconnect-btn" style="display: none;">Desconectar</button>
+        </div>
+
+        <div class="settings-section">
+            <h2>Configurações da IA</h2>
+            
+            <label for="api-provider">Provedor de IA:</label>
+            <select id="api-provider">
+                <option value="openai">OpenAI</option>
+                <option value="gemini">Gemini</option>
+                <option value="openrouter">OpenRouter</option>
+            </select>
+
+            <div id="openai-model-group" class="model-group">
+                <label for="openai-model">Modelo OpenAI:</label>
+                <input type="text" id="openai-model" value="gpt-4o">
+            </div>
+
+            <div id="gemini-model-group" class="model-group" style="display: none;">
+                <label for="gemini-model">Modelo Gemini:</label>
+                <input type="text" id="gemini-model" value="gemini-1.5-flash">
+            </div>
+
+            <div id="openrouter-model-group" class="model-group" style="display: none;">
+                <label for="openrouter-model">Modelo OpenRouter:</label>
+                <input type="text" id="openrouter-model" value="openai/gpt-4o">
+            </div>
+
+            <label for="api-key">Chave da API:</label>
+            <input type="password" id="api-key" placeholder="Sua chave de API">
+
+            <label for="knowledge-prompt">Prompt de Conhecimento:</label>
+            <textarea id="knowledge-prompt" rows="5" placeholder="Ex: Você é um assistente virtual amigável da empresa X."></textarea>
+
+            <label for="response-delay">Aguardar para Responder (segundos):</label>
+            <input type="number" id="response-delay" value="10">
+
+            <button id="save-settings-btn">Salvar Configurações</button>
+        </div>
+    </div>
+
+    <script src="./renderer.js"></script>
+</body>
+</html>
